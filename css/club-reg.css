@@ -10,6 +10,7 @@
 }
 
 body {
+  background-color: #ffffff;
   color: #ffffff;
   font-size: 16px;
   cursor: default;
@@ -79,7 +80,7 @@ a.nav-link {
 main {
   color: black;
   height: fit-content;
-  padding: 4rem;
+  padding: 4rem ;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -98,12 +99,22 @@ main {
 }
 
 .registration-form {
-  padding: 2rem;
+  padding: 3rem;
   flex: 50%;
 }
 
 .form-head img {
   width: 40%;
+  padding: 1rem;
+}
+
+.form-head h2 {
+  padding: 1rem 1rem 0;
+  text-align: center;
+}
+
+.form-body {
+  padding: 2rem;
 }
 
 label {
@@ -122,12 +133,6 @@ label {
 
 .form-img {
   flex: 50%;
-  /* background-image: url(../img/background3.jpg);
-  background-color: #ffffff;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  border-radius: 0 2rem 2rem 0; */
 }
 
 .form-img img {
@@ -213,6 +218,10 @@ hr {
 
   .form-head img{
     width: 50%;
+  }
+
+  .form-head h2 {
+    text-align: center;
   }
 
   .form-img {
