@@ -52,30 +52,51 @@
                 <h2>Club Registration</h2>
               </div>
               <div class="form-body">
-                <form>
+                <form class="needs-validation" novalidate>
                     <div class="mb-3">
                         <label for="name" class="form-label">
                           Name
                         </label>
-                        <input type="text" name="Name" id="name" class="form-control" placeholder="Enter your full name">
+                        <input type="text" name="Name" id="name" class="form-control" placeholder="Enter your full name" required>
+                        <div class="valid-feedback">
+                          Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                          Enter valid Name.
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label for="email1" class="form-label">
                           Email (Personal)
                         </label>
-                        <input type="email" name="email_p" id="email1" class="form-control" placeholder="name@gmail.com">
+                        <input type="email" name="email_p" id="email1" class="form-control" placeholder="name@gmail.com" required>
+                        <div class="valid-feedback">
+                          Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                          Enter valid Email.
+                        </div>
                     </div>
                     <div class="mb-3">
                       <label for="email2" class="form-label">
                         Email (College)
                       </label>
                       <input type="email" name="email_c" id="email2" class="form-control" placeholder="b220000@skit.ac.in">
+                      <div class="invalid-feedback">
+                        Enter valid Email.
+                      </div>
                     </div>
                     <div class="mb-3">
                         <label for="roll" class="form-label">
                           Roll Number
                         </label>
-                        <input type="text" name="roll" id="roll" class="form-control" placeholder="00ESKCS000">
+                        <input type="text" name="roll" id="roll" class="form-control" placeholder="00ESKCS000" required>
+                        <div class="valid-feedback">
+                          Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                          Enter valid Roll Number.
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label for="phone" class="form-label">
@@ -83,14 +104,26 @@
                         </label>
                         <div class="input-group">
                           <div class="input-group-text">+91</div>
-                          <input type="tel" name="phone" id="phone" class="form-control" placeholder="12345 67890">
+                          <input type="tel" name="phone" id="phone" class="form-control" placeholder="12345 67890" required pattern="^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9}$">
+                          <div class="valid-feedback">
+                            Looks good!
+                          </div>
+                          <div class="invalid-feedback">
+                            Enter valid Phone Number.
+                          </div>
                         </div>
                     </div>
                     <div class="mb-3">
                       <label for="branch" class="form-label">
                         Branch
                       </label>
-                      <input type="text" name="branch" id="branch" class="form-control" placeholder="Enter you branch">
+                      <input type="text" name="branch" id="branch" class="form-control" placeholder="Enter you branch" required>
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                      <div class="invalid-feedback">
+                        Enter valid Branch.
+                      </div>
                     </div>
                     <div class="w-12 pt-1">
                         <button type="submit" class="btn register-btn">Register</button>
@@ -107,7 +140,7 @@
     <!------------- Footer------------ -->
   <footer id="contact-us" class="page-footer font-small blue pt-4">
     <!-- Footer Links -->
-    <div class="container ">
+    <div class="container">
 
       <div class="row">
 
@@ -200,6 +233,49 @@
       </p>
     `;
     document.getElementById("copyright").innerHTML = paragraph;
+</script>
+<script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  });
+  var email = document.getElementById('email1');
+  email.oninput = () => {
+    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; 
+    if(!re.test(email.value)){
+      email.setCustomValidity("Invalid field.");
+      email.classList.add('is-invalid');
+    } else {
+      email.classList.remove('is-invalid'); 
+      email.setCustomValidity("")
+    }
+  };
+  var email = document.getElementById('email2');
+  email.oninput = () => {
+    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; 
+    if(!re.test(email.value)){
+      email.setCustomValidity("Invalid field.");
+      email.classList.add('is-invalid');
+    } else {
+      email.classList.remove('is-invalid'); 
+      email.setCustomValidity("")
+    }
+  }
+})()
 </script>
 </body>
 </html>
